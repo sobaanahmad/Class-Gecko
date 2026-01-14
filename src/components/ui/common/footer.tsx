@@ -1,6 +1,24 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import { Separator } from "../separator";
+import Link from "next/link";
+
+const Logo = () => (
+  <Link
+    href="/"
+    className="flex items-center w-24 sm:w-28 md:w-32 h-12 sm:h-12 mb-5"
+  >
+    <div className="relative w-24 sm:w-28 md:w-32 h-12 sm:h-12 flex-shrink-0">
+      <Image
+        src="/logo.png"
+        alt="Company Logo"
+        fill
+        className="object-contain"
+        priority
+      />
+    </div>
+  </Link>
+);
 
 export default function Footer() {
   return (
@@ -17,13 +35,7 @@ export default function Footer() {
         "
       >
         <div className="lg:col-span-2">
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={150}
-            height={40}
-            className="mb-6"
-          />
+          <Logo />
           <p className="text-white text-sm leading-relaxed max-w-md">
             Class Gecko is the all in one class booking system that simplifies
             everything from registrations and finances to safeguarding and
@@ -44,9 +56,29 @@ export default function Footer() {
           </div>
         </div>
         <div>
-          <h3 className="text-white font-semibold text-sm mb-4">Product</h3>
-          <ul className="space-y-2 text-white text-xs">
-            {["Features", "Pricing", "Integrations", "Security", "Mobile App"].map(
+          <h3 className="text-white font-semibold text-[15px] mb-4">Product</h3>
+          <ul className="space-y-2 text-white text-[12px] font-[400]">
+            {[
+              "Features",
+              "Pricing",
+              "Integrations",
+              "Security",
+              "Mobile App",
+            ].map((item) => (
+              <li key={item} className="cursor-pointer hover:underline">
+                {item === "Features" ? (
+                  <Link href="/features">{item}</Link>
+                ) : (
+                  item
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-white font-semibold text-[15px] mb-4">Company</h3>
+          <ul className="space-y-2 text-white text-[12px] font-[400]">
+            {["About Us", "Careers", "Blog", "Press", "Partners"].map(
               (item) => (
                 <li key={item} className="cursor-pointer hover:underline">
                   {item}
@@ -56,18 +88,8 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold text-sm mb-4">Company</h3>
-          <ul className="space-y-2 text-white text-xs">
-            {["About Us", "Careers", "Blog", "Press", "Partners"].map((item) => (
-              <li key={item} className="cursor-pointer hover:underline">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-white font-semibold text-sm mb-4">Support</h3>
-          <ul className="space-y-3 text-white text-xs">
+          <h3 className="text-white font-semibold text-[15px] mb-4">Support</h3>
+          <ul className="space-y-3 text-white text-[12px] font-[400]">
             <li className="cursor-pointer hover:underline">Help Center</li>
             <li className="cursor-pointer hover:underline">Documentation</li>
             <li className="cursor-pointer hover:underline">Community</li>
@@ -108,11 +130,13 @@ export default function Footer() {
           © 2024 Class Gecko, Inc. All rights reserved.
         </p>
         <div className="flex justify-center gap-6 text-white text-sm">
-          {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
-            <span key={item} className="cursor-pointer hover:underline">
-              {item}
-            </span>
-          ))}
+          {["Privacy Policy", "Terms of Service", "Cookie Policy"].map(
+            (item) => (
+              <span key={item} className="cursor-pointer hover:underline">
+                {item}
+              </span>
+            )
+          )}
         </div>
       </div>
     </footer>
