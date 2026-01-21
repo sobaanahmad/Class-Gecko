@@ -45,7 +45,7 @@ export default function Header() {
             <Search className="w-5 h-5 text-[#212121]" />
           </Link>
           <Link
-            href="/signin"
+            href="/login"
             className="px-3 py-1 text-[14px] font-[600] rounded transition hidden sm:inline-flex"
           >
             Sign In

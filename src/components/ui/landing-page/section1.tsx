@@ -16,7 +16,7 @@ export default function SectionOne() {
         </h1>
         <div className="flex flex-wrap gap-4 mt-8">
           <Link
-            href="/signin"
+            href="/login"
             className="text-white text-[14px] font-[600] px-4 py-2.5 bg-[#CC1072] rounded-[8px]"
           >
             Login to Account
